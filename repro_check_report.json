@@ -1,0 +1,73 @@
+{
+  "key_results": [
+    {
+      "sample": "psm_nn_caliper0.05",
+      "outcome": "exporter_any",
+      "or": 2.57327960493543,
+      "ame_overall": 0.1669136714753047,
+      "mem_at_mean": 0.19482234855048017,
+      "p": 1.345473153729966e-13,
+      "n": 1452
+    },
+    {
+      "sample": "psm_nn_caliper0.05",
+      "outcome": "exporter_direct",
+      "or": 2.2861348382060522,
+      "ame_overall": 0.1264052839452413,
+      "mem_at_mean": 0.13277767606928217,
+      "p": 1.8797987648189337e-09,
+      "n": 1452
+    },
+    {
+      "sample": "psm_nn_caliper0.05_exact_ctryyear",
+      "outcome": "exporter_any",
+      "or": 2.504492782784322,
+      "ame_overall": 0.1616112132924757,
+      "mem_at_mean": 0.18561243527030621,
+      "p": 8.225055320765548e-13,
+      "n": 1424
+    },
+    {
+      "sample": "psm_nn_caliper0.05_exact_ctryyear",
+      "outcome": "exporter_direct",
+      "or": 2.3071658475787395,
+      "ame_overall": 0.1274609526340171,
+      "mem_at_mean": 0.13424602608691286,
+      "p": 1.477192328339767e-09,
+      "n": 1424
+    },
+    {
+      "sample": "psm_kernel_h0.06_gaussian_exact_ctryyear_glm",
+      "outcome": "exporter_any",
+      "or": 2.371166710105051,
+      "ame_overall": NaN,
+      "mem_at_mean": NaN,
+      "p": NaN,
+      "n": 4221
+    },
+    {
+      "sample": "psm_kernel_h0.06_gaussian_exact_ctryyear_glm",
+      "outcome": "exporter_direct",
+      "or": 2.2001898847856087,
+      "ame_overall": NaN,
+      "mem_at_mean": NaN,
+      "p": NaN,
+      "n": 4221
+    }
+  ],
+  "descriptives": {
+    "n_total_all_rounds": 4608,
+    "n_by_country_year": {
+      "COL2017": 993,
+      "COL2023": 919,
+      "ECU2017": 361,
+      "ECU2024": 345,
+      "PER2017": 1003,
+      "PER2023": 987
+    },
+    "exporter_rate_unweighted_iso0": 0.17020681945220795,
+    "exporter_rate_unweighted_iso1": 0.4668141592920354,
+    "exporter_rate_weighted_iso0": 0.11104757191296978,
+    "exporter_rate_weighted_iso1": 0.3988212010077773
+  }
+}
