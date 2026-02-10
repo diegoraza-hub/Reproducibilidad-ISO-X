@@ -1,0 +1,68 @@
+name: Reproducibilidad (R)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/**"
+      - ".github/workflows/repro-r.yml"
+      - "data/raw/**"
+      - "outputs/**"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check WBES data presence
+        id: checkdata
+        run: |
+          if [ -d "data/raw" ] && ls data/raw/*.dta >/dev/null 2>&1; then
+            echo "has_data=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_data=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Stop if WBES data not present
+        if: steps.checkdata.outputs.has_data != 'true'
+        run: |
+          echo "WBES .dta files not found in data/raw/. Skipping run."
+          exit 0
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.3"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev
+
+      - name: Install R packages
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::haven
+            any::dplyr
+            any::stringr
+            any::MatchIt
+            any::margins
+            any::AER
+            any::jsonlite
+            any::readr
+
+      - name: Run reproducibility pipeline
+        run: |
+          Rscript scripts/reproduce_iso_export.R
+
+      - name: Upload outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: reproducibility-outputs
+          path: |
+            outputs/repro_summary_R.json
+            outputs/tables/*.csv

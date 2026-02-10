@@ -1,0 +1,11 @@
+estadistico,total,no_ISO,ISO,nota
+N total (combinado),4608.0,,,Suma de las 6 rondas-país
+N con variables clave,4219.0,,,"No faltantes en ISO, ventas, empleo, exportaciones (directa+indirecta)"
+Eliminación listwise,8.44,,,Porcentaje excluido por faltantes en variables clave
+Proporción ISO,20.6,,,% firmas con ISO en muestra con variables clave
+Tasa de exportadoras (exporter=1),,17.22,46.61,Exportadora si exp_directa + exp_indirecta > 0
+Mediana ventas anuales (d2),,22000000.0,186300000.0,Unidades monetarias según encuesta WBES; excluye <=0
+Razón medianas ventas (ISO / no ISO),8.47,,,Cálculo en muestra con variables clave
+Mediana empleo permanente (l1),,18.0,91.0,Número de empleados permanentes; excluye <=0
+Razón medianas empleo (ISO / no ISO),5.06,,,Cálculo en muestra con variables clave
+Mediana cuota exportadora entre exportadoras (%),,20.0,20.0,Entre exporter=1; exp_directa+indirecta (0-100)
